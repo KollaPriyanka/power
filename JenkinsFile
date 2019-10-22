@@ -32,9 +32,13 @@ stage("SonarQube analysis") {
                 waitForQualityGate abortPipeline: true
               }
             }
+            
           }
        
-       
+       stage("slack notification")
+       {
+       slackSend channel: '#jenkins-pipeline-demo', color: 'good', message: 'slack ', teamDomain: 'simple-e0r4903', tokenCredentialId: 'jenkins-slack-integration'
+       }
        
        
        
