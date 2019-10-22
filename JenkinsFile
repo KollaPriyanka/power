@@ -1,8 +1,6 @@
 pipeline{
 agent any 
-environment {
-                scannerHome=tool 'sonar_scanner'
-            }
+
 stages{
 
 stage('clean and build'){
@@ -17,12 +15,11 @@ stage("SonarQube analysis") {
        
             
             
-        steps{
-             withSonarQubeEnv(sonarqube) {
-                  sh '${scannerHome}/bin/sonar-scanner -Dproject.settings=./sonar-project.properties'
+ steps {
+              withSonarQubeEnv('sonarqube') {
+                sh 'mvn sonar:sonar'
               }
-              
-           }
+            }
           }
   
        
