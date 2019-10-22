@@ -13,11 +13,16 @@ steps{
 
 stage("SonarQube analysis") {
        
-            steps {
-              withSonarQubeEnv('sonarqube') {
-                sh 'mvn sonar:sonar'
-              }
+            environment {
+                scannerHome=tool 'sonar_scanner'
             }
+            
+        steps{
+             withSonarQubeEnv(sonarqube) {
+                  sh '${scannerHome}/bin/sonar-scanner -Dproject.settings=./sonar-project.properties'
+              }
+              
+           }
           }
   
        
