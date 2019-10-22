@@ -35,10 +35,10 @@ stage("SonarQube analysis") {
             
           }
        
-       stage("slack notification")
+      /* stage("slack notification")
        {
        slackSend channel: '#jenkins-pipeline-demo', color: 'good', message: 'slack ', teamDomain: 'simple-e0r4903', tokenCredentialId: 'jenkins-slack-integration'
-       }
+       }*/
        
        
        
