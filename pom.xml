@@ -4,6 +4,7 @@
   <artifactId>demopipe</artifactId>
   <version>${BUILD_NUMBER}</version>
   <packaging>war</packaging>
+	
   <dependencies>
    <!-- https://mvnrepository.com/artifact/junit/junit -->
 <dependency>
