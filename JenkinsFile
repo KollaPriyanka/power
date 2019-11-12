@@ -7,6 +7,11 @@ stage('clean and build'){
 steps{
        sh 'mvn clean'
        sh 'mvn install'
+       post { 
+         success { 
+            echo 'notified to slack '
+            }
+            }
 }
 
 }
