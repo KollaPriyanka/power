@@ -5,7 +5,7 @@ stages{
 
 stage('clean and build'){
 steps{
-       slackSend (color: '#00FF00', message: " BUILD TRIGGER: Job '${JOB_NAME} [${BUILD_NUMBER}]' (${BUILD_URL})")
+       slackSend (color: '#00FF00', message: " BUILD TRIGGERED: Job '${JOB_NAME} [${BUILD_NUMBER}]' (${BUILD_URL})")
        sh 'mvn clean'
        sh 'mvn install'
        
