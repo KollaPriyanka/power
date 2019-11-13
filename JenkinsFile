@@ -7,14 +7,9 @@ stage('clean and build'){
 steps{
        sh 'mvn clean'
        sh 'mvn install'
-        success { 
-            echo 'notified to slack '
+       
             slackSend (color: '#00FF00', message: " BUILD SUCCESS: Job '${JOB_NAME} [${BUILD_NUMBER}]' (${BUILD_URL})")
-         }
-         failure {
-            echo 'notified to slack'
-            slackSend (color: '#FF0000', message: " BUILD FAILED: Job '${JOB_NAME} [${BUILD_NUMBER}]' (${BUILD_URL})")
-       }
+        
 }
 
 }
