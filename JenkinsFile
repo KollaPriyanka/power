@@ -15,7 +15,7 @@ steps{
 
 }
 
-stage("SonarQube analysis") {
+/*stage("SonarQube analysis") {
        
             
             
@@ -46,7 +46,7 @@ steps {
              slackSend (color: '#00FF00', message: " NEXUS SUCCESS: Job '${JOB_NAME} [${BUILD_NUMBER}]' (${BUILD_URL})")
              }}
           }
-
+*/
   stage('deploy'){
     steps{
     deploy adapters: [tomcat8(credentialsId: 'tomcat-credentials', path: '', url:'http://13.59.212.1:8089')], contextPath: 'power', onFailure: false, war: '**/*.war'
