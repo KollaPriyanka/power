@@ -5,11 +5,11 @@ stages{
 
 stage('clean and build'){
 steps{
-       slackSend (color: '#00FF00', message: " BUILD TRIGGERED: Job '${JOB_NAME} [${BUILD_NUMBER}]' (${BUILD_URL})")
+       //slackSend (color: '#00FF00', message: " BUILD TRIGGERED: Job '${JOB_NAME} [${BUILD_NUMBER}]' (${BUILD_URL})")
        sh 'mvn clean'
        sh 'mvn install'
        
-            slackSend (color: '#00FF00', message: " BUILD SUCCESS: Job '${JOB_NAME} [${BUILD_NUMBER}]' (${BUILD_URL})")
+           // slackSend (color: '#00FF00', message: " BUILD SUCCESS: Job '${JOB_NAME} [${BUILD_NUMBER}]' (${BUILD_URL})")
         
 }
 
@@ -49,7 +49,8 @@ steps {
 */
   stage('deploy'){
     steps{
-    deploy adapters: [tomcat8(credentialsId: 'tomcat-credentials', path: '', url: 'http://18.223.114.192:8090')], contextPath: 'power', onFailure: false, war: '**/*.war'   slackSend (color: '#00FF00', message: " DEPLOY SUCCESS: Job '${JOB_NAME} [${BUILD_NUMBER}]' (${BUILD_URL})")
+    deploy adapters: [tomcat8(credentialsId: 'tomcat-credentials', path: '', url: 'http://18.223.114.192:8090')], contextPath: 'power', onFailure: false, war: '**/*.war' 
+    // slackSend (color: '#00FF00', message: " DEPLOY SUCCESS: Job '${JOB_NAME} [${BUILD_NUMBER}]' (${BUILD_URL})")
    }
   }
   
