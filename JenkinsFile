@@ -47,7 +47,7 @@ steps {
              }}
           }
 */
- stage('deploy'){
+/* stage('deploy'){
     steps{
    // deploy adapters: [tomcat8(credentialsId: 'tomcat-credentials', path: '', url: 'http://18.223.114.192:8090')], contextPath: 'power', onFailure: false, war: '**/*.war' 
     // slackSend (color: '#00FF00', message: " DEPLOY SUCCESS: Job '${JOB_NAME} [${BUILD_NUMBER}]' (${BUILD_URL})")
@@ -60,7 +60,7 @@ steps {
   }
   
   
-}
+}*/
 /* post { 
          success { 
             echo 'notified to slack '
